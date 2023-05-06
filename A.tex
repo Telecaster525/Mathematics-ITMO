@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage[russian]{babel}
+
+\title{Домашнее задание. Математический Анализ.}
+\author{Выполнил: \textbf{Гаджиев Саид M3115}}
+\date{27 апреля 2023}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Найти площади фигур, ограниченных данными линиями:}\\\\
+\textbf{а) $y = 2x - x^2$, $y = -x$}\\\\
+\textbf{Решение:}
+\begin{center}
+    \includegraphics[width=230px, height=230px]{1.png}
+\end{center}
+\par{Мы знаем, что если на отрезке $[a,b]$ некоторая непрерывная функция $f(x) >= g(x)$, площадь фигуры, ограниченной графиками данных функций и прямыми $x = a; x= b$, можно найти по формуле: $$S = \int_{a}^{b} (f(x) - g(x))dx$$\\ где $f(x) = 2x - x^2$, а $g(x) = -x$}
+$$S = \int_{0}^{3} (2x - x^2 - (-x))dx = \int_{0}^{3} (3x - x^2)dx = (\frac{3x^2}{2} - \frac{x^3}{3})\vert_a^b = \frac{27}{2} - \frac{27}{3} - 0 + 0 = \frac{9}{2} = 4\frac{1}{2}$$
+\textbf{Ответ: $4\frac{1}{2}$}\\\\
+\textbf{б) осью $Ox$ и одной аркой циклоиды
+  \begin{cases}
+    x = 2(t - \sin(t)) \\
+    y = 2(1 - \cos(t))
+  \end{cases}
+}\\\\
+\textbf{Решение:}\\
+\begin{equation*}
+  \begin{cases}
+    x = 2(t - \sin(t)) \\
+    y = 2(1 - \cos(t))
+  \end{cases}
+\end{equation*}
+\begin{equation*}
+  \begin{cases}
+    x = 2t - 2\sin(t) \\
+    y = 2 - 2\cos(t)
+  \end{cases}
+\end{equation*}
+\par{Уравнение циклоиды с $r = 2$}
+\par{Сперва необходимо вычислить площадь первой арки циклоиды, т.к. из условия мы знаем, что фигура ограничена осью $Ox$. В данной арке $t$ принимает значения в пределах ($0 <= t <= 2\pi$)}\\
+\par{$x = 2t - 2\sin(t) - x(t)$}
+\par{$y = 2 - 2\cos(t) - y(t)$}\\
+$$S = \int_{0}^{2\pi}y(t) \cdot x'(t)dt$$
+$$S = \int_{0}^{2\pi}(2-2\cos(t)) \cdot (2t - 2\sin(t))' \cdot dt = \int_{0}^{2\pi}(2 - 2\cos(t)) \cdot (2 - 2\cos(t))dt = $$
+$$= \int_{0}^{2\pi}(2 - 2\cos(t))^2 dt = (6t - 8\sin(t) + \sin(2t))\vert_{0}^{2\pi} = 12\pi - 8\cdot0 + \sin(4\pi) - (0-8\cdot0+\sin(0)) = 12\pi$$\\
+\textbf{Ответ: $12\pi$}\\\\\\
+\textbf{в) одним лепестком "розы"  \rho = a\cos(2\phi), a > 0}\\\\
+\textbf{Решение: }\\
+
+\par{Поскольку форма лепестка симметрична относительно $Ox$ и повторяется дважды в пределах интервала $[0;\pi]$, то для вычисления его площади достаточно проинтегрировать до половины периода, то есть в пределах $[0;\frac{\pi}{2}]$}\\
+
+\par{S криволинейного сектора:}
+$$S = \frac{1}{2} \int_{a}^{B}\rho^2(\phi)d\phi$$
+$$S = \frac{1}{2} \int_{0}^{\frac{\pi}{2}}(a\cos(2\phi))^2 d\phi = \frac{1}{2} \int_{0}^{\frac{\pi}{2}}a^2\cos^2(2\phi)d\phi = ...$$\\
+\par{[$t = 2\phi, d\phi = \frac{dt}{2}, \phi = \frac{t}{2}$]}\\\\
+$$... = \frac{a^2}{2} \cdot \int \frac{\cos^2(t)\cdot dt}{2} = \frac{a^2}{4} \cdot \int \frac{\cos(2t)+1}{2}\cdot dt = \frac{a^2}{4}\cdot(\frac{1}{2} \int \cos(2t)\cdot dt + \frac{1}{2} \int 1 dt) =$$
+$$= \frac{a^2}{4} \cdot (\frac{1}{2} \cdot \frac{\sin(2t)}{2} + \frac{t}{2})$$\\
+$$F = \frac{a^2 \sin(4\phi)}{16} + \frac{a^2 \phi}{4}$$\\
+$$S = (\frac{a^2 \sin(4\phi)}{16} + \frac{a^2 \phi}{4})\vert_{0}^{\frac{\pi}{2}} = \frac{\pi a^2}{8} - 0 = \frac{\pi a^2}{8}$$
+
+\textbf{Ответ: $\frac{\pi a^2}{8}$}
+
+\end{document}

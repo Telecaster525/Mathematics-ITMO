@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage[russian]{babel}
+
+\title{Домашнее задание. Математический Анализ.}
+\author{Выполнил: \textbf{Гаджиев Саид M3115}}
+\date{14 Марта 2023}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Задание №2187}
+\par{Вычислить определённые интегралы, рассматривая их как пределы соответсвующших интегральных сумм и производя разбиение промежутка интеграции надлежащим образом: $\int_{0}^{\frac{\pi}{2}}\sin(x)dx$.}\\
+\textbf{Решение:}\\\\
+$\triangle x = \frac{\frac{\pi}{2}}{n} = \frac{\pi}{2n}$\\
+$x_{0} = 0, x_{1} = 0 + \frac{\pi}{2n}, ..., x_{k} = \frac{\pi}{2}$\\
+\par{Берём произвольные точки ($\xi_{1} = \frac{\pi}{2n}; \xi_{2} = \frac{\pi}{n}$) наших блоков, чтобы посчитать их площадь:}
+$$f(\xi_{i}) = \sin(\frac{\pi}{2n})$$
+\par{Используя формулу: $\sum_{k=1}^{n} \sin(kx) = \sin(x)+\sin(2x)+...+\sin(nx) = \frac{\cos(\frac{x}{2})-\cos(n+\frac{1}{2})x}{2\sin(\frac{x}{2})}$}
+$$S_{n} = \sum_{i=1}^{n} f(\xi_{i})\triangle x_{i} = \frac{\pi}{2n} (\sin(\frac{\pi}{2n}) + \sin(\frac{\pi}{n}) + ... + \sin(\frac{\pi}{2}))$$
+$$\lim_{n \rightarrow \propto}S_{n} = \frac{\pi}{2n}\frac{\sin(\frac{\pi}{4})\sin(n\frac{\pi+\pi}{4n})}{\sin(\frac{\pi}{4n})} = \frac{\pi}{2n}\frac{\sin(\frac{\pi}{4})\sin(n\frac{\pi+\frac{\pi}{n}}{4})}{\sin(\frac{\pi}{4n})} = \frac{\pi}{2n}\frac{4n\sin(\frac{\pi}{4})\sin(\frac{\pi}{4})}{\pi} =$$
+$$= 2\sin^{2}(\frac{\pi}{4}) = 2\frac{2}{4} = 1$$
+\textbf{Ответ: 1}
+\\\\
+\textbf{Задание №2189}
+\par{Вычислить определённые интегралы, рассматривая их как пределы соответсвующших интегральных сумм и производя разбиение промежутка интеграции надлежащим образом: $\int_{a}^{b}\frac{dx}{x^{2}}$, (0 < a < b).}\\
+\textbf{Решение:}\\\\
+$\triangle x = \frac{b-a}{n}$\\
+$x_{0} = a, x_{1} = a + \frac{b-a}{n}, x_{n} = b$\\
+$$\xi_{i} = \sqrt{x_{i}x_{i+1}}$$
+$$S_{n} = \sum_{i=1}^{n} f(\xi_{i})\triangle x_{i} = \frac{b-a}{n}(\frac{1}{{\sqrt{a(a+\frac{b-a}{n})}}^{2}} + \frac{1}{{\sqrt{a+2\frac{b-a}{n}}}^{2}} + ... + \frac{1}{\sqrt{b}}) =$$
+$$\frac{b-a}{n} (\frac{1}{a(a+\frac{b-a}{n})} + \frac{1}{(a+\frac{b-a}{n})(a+\frac{b-a}{n}\cdot2)} + ... + \frac{1}{(a+\frac{b-a}{n} (n-1))b})$$\\
+$$k = \frac{b-a}{n}$$
+$$k\sum_{i=0}^{n} \frac{1}{a^{2} + (2i+1)ak + (i^{2} + i)k^{2}} = \frac{1}{(a+\frac{b-a}{n}i)(a+\frac{b-a}{n}(i+1))} = -\frac{n(n+1)}{a(a-b(n+1))}$$
+$$\lim_{n \rightarrow \propto}\frac{(a-b)(n+1)}{a(a-b(n+1))} = \frac{1}{a} - \frac{1}{b} = {a^{-1}}-{b^{-1}}$$
+\textbf{Ответ: ${a^{-1}}-{b^{-1}}$}
+\\\\
+\textbf{Задание №2190}
+\par{Вычислить определённые интегралы, рассматривая их как пределы соответсвующших интегральных сумм и производя разбиение промежутка интеграции надлежащим образом: $\int_{a}^{b}x^{m}dx$, (0 < a < b; m \neq -1).}\\
+\textbf{Решение:}\\
+\begin{center}
+    $d = (\frac{b}{a})^{\frac{1}{n}}$\\
+    $b = a \cdot d^{n}$
+\end{center}
+\begin{center}
+    $\triangle x_{i} = a \cdot d^{i} - a \cdot d^{i-1}$\\
+    $f(\xi_{i}) = (a \cdot d^{i})^{m}$
+\end{center}
+$$\sum_{i=0}^{n}a^{m+1} (d-1) \cdot d^{im+i-1} = (d-1) \cdot a^{m+1} (\frac{d^{m}(d^{(m+1)n} -1)}{d^{m+1} - a}) =$$
+$$= a^{m+1} ((\frac{b}{a})^{\frac{1}{n}} -1) \cdot \frac{(\frac{b}{a})^{\frac{m}{n}} \cdot ((\frac{b}{a})^{m+1} - 1)}{(\frac{b}{a})^{\frac{m+1}{n}} -1} = a^{m+1} (\frac{1}{n} \ln|\frac{b}{a}| \cdot \frac{(\frac{b}{a})^{\frac{m}{n}} -1}{\frac{1}{n} \cdot \ln|\frac{b}{a}|^{m+1}}) = \frac{b^{m+1}}{m+1} - \frac{a^{m+1}}{m+1}$$
+\textbf{Ответ: $\frac{b^{m+1}}{m+1} - \frac{a^{m+1}}{m+1}$}
+
+\end{document}
